@@ -1,0 +1,19 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:amqpdemo="http://www.mulesoft.org/schema/mule/amqpdemo"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/amqpdemo http://www.mulesoft.org/schema/mule/amqpdemo/current/mule-amqpdemo.xsd">
+
+    <amqpdemo:config name="config" configId="configId">
+        <amqpdemo:connection requiredParameter="aValue" />
+    </amqpdemo:config>
+
+    <flow name="sayHiFlow">
+        <amqpdemo:say-hi person="Mariano Gonzalez"/>
+    </flow>
+
+    <flow name="retrieveInfoFlow">
+        <amqpdemo:retrieve-info config-ref="config"/>
+    </flow>
+
+</mule>
